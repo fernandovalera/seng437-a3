@@ -150,6 +150,33 @@ public class DataUtilitiesTest_getCumulativePercentages {
 		assertEquals("The cumulative percentage of 5, 9, 2 of {5, 9, 2} should be 1.0", expectedValue2.doubleValue(), actual.getValue(key2).doubleValue(), ERROR_MARGIN);
     }
     
+    @Test
+    public void test_getCumulativePercentages_oneKeyedValue_nullValue() {
+		// setup
+		Mockery mockingContext = new Mockery();
+
+		final int key0 = 0;
+		final Number value0 = null;
+		
+		final KeyedValues kv = mockingContext.mock(KeyedValues.class);	
+		mockingContext.checking(new Expectations() {
+		{
+			allowing(kv).getItemCount();
+			will(returnValue(1));
+			atLeast(1).of(kv).getKey(0);
+			will(returnValue(key0));
+			atLeast(1).of(kv).getValue(0);
+			will(returnValue(value0));
+		}
+		});
+
+        KeyedValues actual = DataUtilities.getCumulativePercentages(kv);
+        
+		final Number expectedValue0 = 0.0;
+        
+        assertEquals("The cumulative percentage of null of {null} should be 0.0", expectedValue0.doubleValue(), actual.getValue(key0).doubleValue(), ERROR_MARGIN);
+    }
+    
     @After
     public void tearDown() throws Exception { }
     @AfterClass

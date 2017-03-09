@@ -29,14 +29,14 @@ public class DataUtilitiesTest_calculateColumnTotal_additional {
         values = mockingContext.mock(Values2D.class);
         mockingContext.checking(new Expectations(){
             {
-                one(values).getRowCount(); 	//Checking one call of getRowCount() on values
-                will(returnValue(2));		//will return the value 2.
+                one(values).getRowCount(); 	// Checking one call of getRowCount() on values
+                will(returnValue(2));		// will return the value 2.
 
                 one(values).getValue(0, 0);	//Checking one call of getValue() on values
-                will(returnValue(null));		//will return the value 7.5.
+                will(returnValue(null));		//will return the value null.
 
                 one(values).getValue(1, 0);	//Checking one call of getValue() on values
-                will(returnValue(null));		//will return the value 2.5.
+                will(returnValue(null));		//will return the value null.
 
                 one(values).getValue(0, 1);
                 will(throwException(indexOutOfBoundsException));
@@ -72,7 +72,7 @@ public class DataUtilitiesTest_calculateColumnTotal_additional {
                 will(returnValue(2.5));		//will return the value 7.5.
 
                 one(values).getValue(1, 0);	//Checking one call of getValue() on values
-                will(returnValue(null));		//will return the value 2.5.
+                will(returnValue(null));		//will return the value null.
 
                 one(values).getValue(0, 1);
                 will(throwException(indexOutOfBoundsException));
@@ -105,10 +105,10 @@ public class DataUtilitiesTest_calculateColumnTotal_additional {
                 will(returnValue(2));		//will return the value 2.
 
                 one(values).getValue(0, 0);	//Checking one call of getValue() on values
-                will(returnValue(null));		//will return the value 7.5.
+                will(returnValue(null));		//will return the value null.
 
                 one(values).getValue(1, 0);	//Checking one call of getValue() on values
-                will(returnValue(10));		//will return the value 2.5.
+                will(returnValue(10));		//will return the value 10.
 
                 one(values).getValue(0, 1);
                 will(throwException(indexOutOfBoundsException));

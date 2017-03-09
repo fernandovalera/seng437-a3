@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Hilmi on 2/14/2017.
  * Last edited by Fernando on 2017-02-15.
  */
-public class RangeTest_constrains {
+public class RangeTest_constrain {
 
     @Rule
     public ExpectedException exceptions = ExpectedException.none();
